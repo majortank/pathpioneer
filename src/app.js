@@ -11,6 +11,16 @@ const App = () => {
   const [disabledOptions, setDisabledOptions] = useState({});
   const [selectedLevel, setSelectedLevel] = useState("Beginner");
 
+
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+  
+
   const fetchQuestions = (level) => {
     fetch(`${API_BASE_URL}${level}`)
       .then((response) => response.json())
@@ -97,11 +107,11 @@ const App = () => {
           <div className="card border">
             <div className="card-body">
             <h2>
-            <div className="badge badge-info gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-4 h-4 stroke-current">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                {currentQuestion.level} Level Assesment
-            </div>
+              <div className="badge badge-info gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-4 h-4 stroke-current">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                  {currentQuestion.level} Level Assesment
+              </div>
             </h2>
             
               <div className="question-container">
