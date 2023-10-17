@@ -26,14 +26,6 @@ const App = () => {
     setSelectedLevel(event.target.value);
   };
 
-  // ... rest of the code
-  // useEffect(() => {
-  //   fetch(API_URL)
-  //     .then((response) => response.json())
-  //     .then((data) => setQuestions(data))
-  //     .catch((error) => console.error("Error fetching data: ", error));
-  // }, []);
-
   const handleAnswerChange = (selectedAnswer) => {
     setUserAnswers({ ...userAnswers, [currentQuestionIndex]: selectedAnswer });
     setDisabledOptions({ ...disabledOptions, [currentQuestionIndex]: true });
@@ -104,7 +96,14 @@ const App = () => {
           </div> 
           <div className="card border">
             <div className="card-body">
-            <h2></h2>
+            <h2>
+            <div className="badge badge-info gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-4 h-4 stroke-current">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                {currentQuestion.level} Level Assesment
+            </div>
+            </h2>
+            
               <div className="question-container">
                 <h2 className=" text-4xl mb-2">{currentQuestion.question}</h2>
                 <ul>
