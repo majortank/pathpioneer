@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* * {
+    border: solid red 1px;
+} */
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; /* Set the container to fill the viewport height */
+}
+
+  
