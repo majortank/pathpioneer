@@ -76,6 +76,8 @@ const App = () => {
 
   const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
+  const progress = Math.round(((currentQuestionIndex + 1) / questions.length) * 100);
+
 
   return (
     <>
@@ -110,17 +112,21 @@ const App = () => {
         <div className="indicator mt-10">
           <div className="indicator-item indicator-bottom">
             <button className="btn btn-primary animate-bounce">Current Score: {score}</button>
-          </div> 
+          </div>
+          
+          
           <div className="card border">
-            <div className="card-body">
-            <h2>
+            <div className="card-body w-3/4 max-w-4xl">
+            <div className=" border-red-400">
               <div className="badge badge-info gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-4 h-4 stroke-current">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                  {currentQuestion.level} Level Assesment
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-4 h-4 stroke-current">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    {currentQuestion.level} Level Assesment
+                </div>
+              <div className="radial-progress text-primary ml-5" style={{"--value": progress, "--size": "3rem"}}>
+                  {progress}%
               </div>
-            </h2>
-            
+            </div>
               <div className="question-container">
                 <h2 className=" text-4xl mb-2">{currentQuestion.question}</h2>
                 <ul>
