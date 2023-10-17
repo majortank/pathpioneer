@@ -24,9 +24,16 @@ const App = () => {
   const fetchQuestions = (level) => {
     fetch(`${API_BASE_URL}${level}`)
       .then((response) => response.json())
-      .then((data) => setQuestions(data))
+      .then((data) => {
+        const questionsWithShuffledOptions = data.map((question) => {
+          const shuffledOptions = shuffleArray(question.options);
+          return { ...question, options: shuffledOptions };
+        });
+        setQuestions(questionsWithShuffledOptions);
+      })
       .catch((error) => console.error("Error fetching data: ", error));
   };
+  
 
   useEffect(() => {
     fetchQuestions(selectedLevel);
