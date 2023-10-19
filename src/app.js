@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import './app.css';
 import SkillsMatrix from "./components/SkillsMatrix";
 
-const API_BASE_URL = "http://localhost:8000/question/all/";
+const API_BASE_URL = "http://10.82.1.228:8000/question/all/";
+
+// import logo from "images/logo.png";
+
+import logo from './images/logo.png';
+import logo1 from './images/logo1.png';
 
 const App = () => {
   const [questions, setQuestions] = useState([]);
@@ -82,9 +87,15 @@ const App = () => {
   return (
     <>
       <div className="flex flex-col items-center">
-        <div className="navbar bg-indigo-400">
+        <div className="navbar bg-white">
           <div className="flex-1">
-            <a className="btn btn-ghost normal-case text-xl text-indigo-50">PathPioneer</a>
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar ml-5 inline-block">
+              <div className=" w-12  rounded-full">
+                <img src={logo1} />
+              </div>
+              
+            </label>
+            <a className="btn btn-ghost normal-case text-xl"><span className=" text-indigo-500 text-2xl logo">Path</span><span className=" text-fuchsia-500 text-2xl logo">Pioneer</span></a>
           </div>
           <div className="flex-none">
             <button className="btn btn-square btn-ghost">
@@ -94,39 +105,41 @@ const App = () => {
         </div>
 
         <div className="flex flex-col items-center">
-      <div className="level-selector mt-5">
-        <label className="mr-3 text-lg">Select your level:</label>
-        <select
-          className="select select-primary w-full max-w-xs"
-          value={selectedLevel}
-          onChange={handleLevelChange}
-        >
-          <option value="Beginner">Beginner</option>
-          <option value="Intermediate">Intermediate</option>
-          <option value="Advanced">Advanced</option>
-        </select>
-      </div>
+        <div className="level-selector mt-5 w-full" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div>
+            <label className="mr-3 text-lg">Select your level:</label>
+            <select
+              className="select select-primary w-full max-w-xs"
+              value={selectedLevel}
+              onChange={handleLevelChange}
+            >
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+          </div>
+          <div className="radial-progress bg-primary text-primary-content border-4 border-primary" style={{ "--value": progress, "--size": "3rem" }}>
+            {progress}%
+          </div>
+        </div>
+
+
 
       {/* ... rest of the code */}
 
-        <div className="indicator mt-10">
+        <div className="indicator mt-10 max-w-7xl h-screen">
           <div className="indicator-item indicator-bottom">
             <button className="btn btn-primary animate-bounce">Current Score: {score}</button>
           </div>
-          
-          
           <div className="card border">
-            <div className="card-body w-3/4 max-w-4xl">
-            <div className=" border-red-400">
-              <div className="badge badge-info gap-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-4 h-4 stroke-current">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                    {currentQuestion.level} Level Assesment
-                </div>
-              <div className="radial-progress text-primary ml-5" style={{"--value": progress, "--size": "3rem"}}>
-                  {progress}%
+            <div className="card-body">
+              <div className=" w-4/5">
+                <div className="badge badge-info">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-4 h-4 stroke-current">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                      {currentQuestion.level} Level Assesment
+                  </div>
               </div>
-            </div>
               <div className="question-container">
                 <h2 className=" text-4xl mb-2">{currentQuestion.question}</h2>
                 <ul>
@@ -149,10 +162,10 @@ const App = () => {
                 </ul>
                 <div className="button-container">
                   {currentQuestionIndex > 0 && (
-                    <button className="transition ease-in-out delay-150 btn btn-sm mt-4 mr-2 btn-outline btn-accent hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300" onClick={handlePreviousQuestion}>Previous Question</button>
+                    <button className="transition ease-in-out delay-150 btn btn-sm mt-4 mr-2 btn-outline btn-primary hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300" onClick={handlePreviousQuestion}>Previous Question</button>
                   )}
                   {currentQuestionIndex < questions.length - 1 && (
-                    <button className="transition ease-in-out delay-150 btn btn-sm mt-4 btn-outline btn-primary hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300" onClick={handleNextQuestion}>Next Question</button>
+                    <button className="transition ease-in-out delay-150 btn btn-sm mt-4 btn-outline btn-secondary hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300" onClick={handleNextQuestion}>Next Question</button>
                   )}
                 </div>
               </div>

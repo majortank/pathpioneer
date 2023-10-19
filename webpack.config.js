@@ -1,6 +1,5 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-
 module.exports = {
   entry: './src/index.js',
   module: {
@@ -17,11 +16,29 @@ module.exports = {
           'postcss-loader',
         ],
       },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images/',
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-    }),
+    })
   ],
+  devServer: {
+    host: '0.0.0.0', // Bind to all network interfaces
+    port: 3000,
+    open: true,
+  },
 };
+
