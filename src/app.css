@@ -6,8 +6,11 @@
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
+    box-sizing: content-box;
+    background-color: #f9fafb;
+    font-family: 'Roboto', sans-serif;
+    color: #4b5563;
+    min-width: 100vw;
 }
 
 /* * {
@@ -21,4 +24,16 @@ body {
     height: 100vh; /* Set the container to fill the viewport height */
 }
 
+.logo {
+    font-family: 'Acme', sans-serif !important;
+}
   
+.text {
+font-size: 16px;
+/* other styles */
+}
+
+.btn-outline {
+    outline-color: #c026d3;
+}
+
