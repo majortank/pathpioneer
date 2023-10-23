@@ -6,11 +6,13 @@
 body {
     margin: 0;
     padding: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
     background-color: #f9fafb;
     font-family: 'Roboto', sans-serif;
     color: #4b5563;
     min-width: 100vw;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 /* * {
@@ -35,5 +37,9 @@ font-size: 16px;
 
 .btn-outline {
     outline-color: #c026d3;
+}
+
+.animate-ping {
+    animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
