@@ -16,13 +16,13 @@ const RewardPunishment = ({ isCorrect }) => {
       {isCorrect ? (
         <>
           <div className="indicator-item indicator-middle indicator-center text-8xl">
-            <span className=' animate-ping flex flex-col-reverse text-success'>👍 Nooice!</span>
+            <span className='animate-ping flex flex-row-reverse text-success flex-wrap'>👍 Nooice!</span>
           </div>
         </>
       ) : (
         <>
           <div className="indicator-item indicator-middle indicator-center text-8xl">
-            <span className=' animate-ping flex flex-col-reverse text-error'>👎 Oops!</span>
+            <span className='animate-ping flex flex-row-reverse text-error'>👎 Oops!</span>
           </div>
         </>
       )}
