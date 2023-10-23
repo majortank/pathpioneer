@@ -107,9 +107,9 @@ const App = () => {
         </div>
 
         <div className="flex flex-col items-center">
-        <div className="level-selector mt-5 w-full" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div>
-            <label className="mr-3 text-lg">Select your level:</label>
+        <div className="level-selector mt-5 w-full" style={{ display: "flex", justifyContent: "space-between", alignItems: "start", flexDirection:"column-reverse" }}>
+          <div className=" ml-2">
+            <label className="mr-3 ml-2 text-lg text-secondary">Select your level:</label>
             <select
               className="select select-primary w-full max-w-xs"
               value={selectedLevel}
@@ -120,7 +120,7 @@ const App = () => {
               <option value="Advanced">Advanced</option>
             </select>
           </div>
-          <div className="radial-progress bg-primary text-primary-content text-2xl border-4 border-primary" style={{ "--value": progress, "--size": "3rem" }}>
+          <div className="radial-progress bg-primary text-primary-content text-2xl border-4 border-primary ml-2 mb-4" style={{ "--value": progress, "--size": "3rem" }}>
             {progress}%
           </div>
         </div>
