@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import './app.css';
 import SkillsMatrix from "./components/SkillsMatrix";
+import Footer from "./components/Footer";
+import RewardPunishment from "./components/RewardPunishment";
 
-const API_BASE_URL = "http://10.82.1.228:8000/question/all/";
-
+// const API_BASE_URL = "http://10.82.1.228:8000/question/all/";
+const API_BASE_URL = "http://localhost:8000/question/all/";
 // import logo from "images/logo.png";
 
 import logo from './images/logo.png';
@@ -118,7 +120,7 @@ const App = () => {
               <option value="Advanced">Advanced</option>
             </select>
           </div>
-          <div className="radial-progress bg-primary text-primary-content border-4 border-primary" style={{ "--value": progress, "--size": "3rem" }}>
+          <div className="radial-progress bg-primary text-primary-content text-2xl border-4 border-primary" style={{ "--value": progress, "--size": "3rem" }}>
             {progress}%
           </div>
         </div>
@@ -127,14 +129,19 @@ const App = () => {
 
       {/* ... rest of the code */}
 
-        <div className="indicator mt-10 max-w-7xl h-screen">
-          <div className="indicator-item indicator-bottom">
-            <button className="btn btn-primary animate-bounce">Current Score: {score}</button>
+        <div className="indicator mt-10 max-w-7xl">
+          <div className="indicator-item indicator-bottom indicator-center">
+            <button className="btn btn-primary text-3xl">{score}</button>
           </div>
-          <div className="card border">
+          {userAnswers[currentQuestionIndex] && ( // Display RewardPunishment component only if an answer has been selected
+        <RewardPunishment
+          isCorrect={userAnswers[currentQuestionIndex] === currentQuestion.correct_answer}
+        />
+      )}
+          <div className="card lg:card-side bg-base-100 shadow-xl">
             <div className="card-body">
               <div className=" w-4/5">
-                <div className="badge badge-info">
+                <div className="badge badge-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-4 h-4 stroke-current">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                       {currentQuestion.level} Level Assesment
@@ -147,7 +154,7 @@ const App = () => {
                     <li key={index}>
                       <label className=" text-xl">
                         <input
-                        className=" mr-2 radio-primary radio-xs"
+                        className="mr-2 radio-primary radio-xs"
                           type="radio"
                           name={`question-${currentQuestionIndex}`}
                           value={option}
@@ -173,10 +180,12 @@ const App = () => {
           </div>
         </div>
     </div>
+    
     </div>
-    {isLastQuestion && (
+    {/* {isLastQuestion && (
         <SkillsMatrix userAnswers={userAnswers} questions={questions} />
-      )}
+      )} */}
+      <Footer />
     </>
     
   );
