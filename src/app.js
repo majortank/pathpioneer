@@ -4,8 +4,8 @@ import SkillsMatrix from "./components/SkillsMatrix";
 import Footer from "./components/Footer";
 import RewardPunishment from "./components/RewardPunishment";
 
-// const API_BASE_URL = "http://10.82.1.228:8000/question/all/";
-const API_BASE_URL = "http://localhost:8000/question/all/";
+const API_BASE_URL = "http://10.82.1.228:8000/question/all/";
+// const API_BASE_URL = "http://localhost:8000/question/all/";
 // import logo from "images/logo.png";
 
 import logo from './images/logo.png';
@@ -26,7 +26,6 @@ const App = () => {
     }
     return array;
   };
-  
 
   const fetchQuestions = (level) => {
     fetch(`${API_BASE_URL}${level}`)
@@ -120,18 +119,17 @@ const App = () => {
               <option value="Advanced">Advanced</option>
             </select>
           </div>
-          <div className="radial-progress bg-primary text-primary-content text-2xl border-4 border-primary ml-2 mb-4" style={{ "--value": progress, "--size": "3rem" }}>
+          <div className="radial-progress bg-primary text-primary-content text-lg border-4 border-primary ml-2 mb-4" style={{ "--value": progress, "--size": "3rem" }}>
             {progress}%
           </div>
         </div>
-
-
 
       {/* ... rest of the code */}
 
         <div className="indicator mt-10 max-w-7xl">
           <div className="indicator-item indicator-bottom indicator-center">
-            <button className="btn btn-primary text-3xl">{score}</button>
+            <button className="numerator btn btn-primary w-10 text-3xl"><span className=" mx-2">{score}</span></button>
+            <button className="denominator btn btn-primary w-10 text-3xl"><span className=" mx-2">{questions.length}</span></button>
           </div>
           {userAnswers[currentQuestionIndex] && ( // Display RewardPunishment component only if an answer has been selected
         <RewardPunishment
