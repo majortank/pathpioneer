@@ -4,7 +4,7 @@ import SkillsMatrix from "./components/SkillsMatrix";
 import Footer from "./components/Footer";
 import RewardPunishment from "./components/RewardPunishment";
 
-const API_BASE_URL = "http://10.82.1.228:8000/question/all/";
+const API_BASE_URL = "http://pioneerapi.tangikuu.tech/question/all/";
 // const API_BASE_URL = "http://localhost:8000/question/all/";
 // import logo from "images/logo.png";
 
