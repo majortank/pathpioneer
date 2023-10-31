@@ -33,7 +33,8 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-    })
+      favicon: 'public/favicon.ico', 
+    }),
   ],
   devServer: {
     host: '0.0.0.0', // Bind to all network interfaces
