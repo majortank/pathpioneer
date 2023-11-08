@@ -3,10 +3,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   devServer: {
-    historyApiFallback: true,
-    host: '0.0.0.0', // Bind to all network interfaces
-    port: 3000,
-    open: true,
+    historyApiFallback: {
+      index: 'index.html', // The fallback file to serve (usually index.html)
+    },
   },
   module: {
     rules: [
