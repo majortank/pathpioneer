@@ -5,6 +5,7 @@ import '../app.css';
 import logo1 from '../images/logo1.png';
 
 import {BsFillPersonFill} from 'react-icons/bs';
+import { Link } from 'react-router-dom/dist';
 
 const Navbar = () => {
   const { user, signOut } = useAuth();
@@ -61,15 +62,15 @@ const Navbar = () => {
             {
             user ? (
                 <li>
-                    <a onClick={handleLogout}>Logout</a>
+                    <Link onClick={handleLogout}>Logout</Link>
                 </li>
                 ) : (
                 <>
                 <li className=' mb-2'>
-                    <a href='/login'>Login</a>
+                    <Link to={'/login'} >Login</Link>
                 </li>
                 <li>
-                    <a href='/register'>Register</a>
+                    <Link to={'/register'} >Register</Link>
                 </li>
                 </>
                 )
