@@ -11,6 +11,7 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #4b5563;
     min-width: 100vw;
+    min-height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
 }

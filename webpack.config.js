@@ -2,6 +2,12 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
+  devServer: {
+    historyApiFallback: true,
+    host: '0.0.0.0', // Bind to all network interfaces
+    port: 3000,
+    open: true,
+  },
   module: {
     rules: [
       {
@@ -35,11 +41,6 @@ module.exports = {
       template: 'src/index.html',
       favicon: 'public/favicon.ico', 
     }),
-  ],
-  devServer: {
-    host: '0.0.0.0', // Bind to all network interfaces
-    port: 3000,
-    open: true,
-  },
+  ]
 };
 
