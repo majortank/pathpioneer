@@ -46,7 +46,7 @@ const SignUpPage = () => {
   }, [user]);
 
   return (
-    <div className="container bg-base-100 mx-auto mt-8 p-4 max-w-md">
+    <div className="container bg-base-100 mx-auto mt-8 p-4 max-w-md rounded">
       <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
       <form onSubmit={handleSubmit}>
         <div className="space-y-4">
@@ -98,7 +98,7 @@ const SignUpPage = () => {
         </div>
       </form>
       <p className="mt-4">
-        Already have an account? <Link to="/login" className="link link-secondary">Sign in here</Link>.
+        Already have an account? <Link to="/login" className="link link-primary">Sign in here</Link>.
       </p>
     </div>
   );

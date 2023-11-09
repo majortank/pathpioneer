@@ -104,7 +104,7 @@ const HomePage = () => {
           <div className=" ml-2">
             <label className="mr-3 ml-2 text-lg text-secondary">Select your level:</label>
             <select
-              className="select select-primary w-full max-w-xs"
+              className="select select-secondary w-full max-w-xs"
               value={selectedLevel}
               onChange={handleLevelChange}
             >
@@ -113,7 +113,7 @@ const HomePage = () => {
               <option value="Advanced">Advanced</option>
             </select>
           </div>
-          <div className="radial-progress bg-primary text-primary-content text-lg border-4 border-primary ml-2 mb-4" style={{ "--value": progress, "--size": "3rem" }}>
+          <div className="radial-progress bg-secondary text-secondary-content text-lg border-4 border-secondary ml-2 mb-4" style={{ "--value": progress, "--size": "3rem" }}>
             {progress}%
           </div>
         </div>
@@ -122,8 +122,8 @@ const HomePage = () => {
 
         <div className="indicator mt-10 max-w-7xl">
           <div className="indicator-item indicator-bottom indicator-center">
-            <button className="numerator btn btn-primary w-10 text-3xl"><span className=" mx-2">{score}</span></button>
-            <button className="denominator btn btn-primary w-10 text-3xl"><span className=" mx-2">{questions.length}</span></button>
+            <button className="numerator btn btn-secondary w-10 text-3xl"><span className=" mx-2">{score}</span></button>
+            <button className="denominator btn btn-secondary w-10 text-3xl"><span className=" mx-2">{questions.length}</span></button>
           </div>
           {userAnswers[currentQuestionIndex] && ( // Display RewardPunishment component only if an answer has been selected
         <RewardPunishment
@@ -133,7 +133,7 @@ const HomePage = () => {
           <div className="card lg:card-side bg-base-100 shadow-xl">
             <div className="card-body">
               <div className=" w-4/5">
-                <div className="badge badge-primary">
+                <div className="badge badge-secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-4 h-4 stroke-current">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                       {currentQuestion.level} Level Assesment
@@ -146,7 +146,7 @@ const HomePage = () => {
                     <li key={index}>
                       <label className=" text-xl">
                         <input
-                        className="mr-2 radio-primary radio-xs"
+                        className="mr-2 radio-secondary radio-xs"
                           type="radio"
                           name={`question-${currentQuestionIndex}`}
                           value={option}
@@ -161,7 +161,7 @@ const HomePage = () => {
                 </ul>
                 <div className="button-container">
                   {currentQuestionIndex > 0 && (
-                    <button className="transition ease-in-out delay-150 btn btn-sm mt-4 mr-2 btn-outline btn-primary hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300" onClick={handlePreviousQuestion}>Previous Question</button>
+                    <button className="transition ease-in-out delay-150 btn btn-sm mt-4 mr-2 btn-outline btn-secondary hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300" onClick={handlePreviousQuestion}>Previous Question</button>
                   )}
                   {currentQuestionIndex < questions.length - 1 && (
                     <button className="transition ease-in-out delay-150 btn btn-sm mt-4 btn-outline btn-secondary hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300" onClick={handleNextQuestion}>Next Question</button>
