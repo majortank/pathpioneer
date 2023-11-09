@@ -46,14 +46,14 @@ const Navbar = () => {
                 !user ? (
                     <a className="justify-between text-xs bg-primary text-white">
                 {
-                    user?.email ? user.email : "Sing in below"
+                    user?.email ? user.email : "User Profile"
                 }
             </a>
                 ) :
                 (
                     <a className="justify-between text-xs bg-secondary text-white">
                 {
-                    user?.email ? user.email : "Sing in below"
+                    user?.email ? user.email : "User Profile"
                 }
             </a>
                 )
