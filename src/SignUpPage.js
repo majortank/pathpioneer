@@ -47,7 +47,7 @@ const SignUpPage = () => {
 
   return (
     <div className="container bg-base-100 mx-auto mt-8 p-4 max-w-md rounded">
-      <h2 className="text-2xl font-bold mb-4">Sign Up</h2>
+      <h2 className="text-2xl font-bold mb-4 text-gray-600">Start Your Career Quest</h2>
       <form onSubmit={handleSubmit}>
         <div className="space-y-4">
           <div className="space-y-1">

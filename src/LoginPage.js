@@ -40,7 +40,7 @@ const LoginPage = () => {
   return (
     <>
       <div className="container bg-base-100 mx-auto mt-8 p-4 max-w-md rounded">
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
+        <h2 className="text-2xl font-bold mb-4">Your Career Adventure Awaits</h2>
         <form className='' onSubmit={handleSubmit}>
           <div className="space-y-4">
             <div className='space-y-1'>
@@ -76,7 +76,7 @@ const LoginPage = () => {
             </div>
           </div>
         </form>
-        <p className="mt-2">
+        <p className="mt-4 mx-auto">
           Don't have an account? <Link to="/register" className="link link-primary">Sign up here</Link>.
         </p>
       </div>
