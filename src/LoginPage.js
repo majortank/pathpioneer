@@ -76,7 +76,7 @@ const LoginPage = () => {
             </div>
           </div>
         </form>
-        <p className="mt-4 mx-auto">
+        <p className="mt-4 mx-auto text-sm">
           Don't have an account? <Link to="/register" className="link link-primary">Sign up here</Link>.
         </p>
       </div>
