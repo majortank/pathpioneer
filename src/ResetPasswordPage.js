@@ -11,7 +11,7 @@ const ResetPasswordPage = () => {
       alert('Password reset email sent. Please check your inbox.');
     } catch (error) {
       console.error('Error sending password reset email:', error);
-      // Handle error here (e.g., show error message)
+      
     }
   };
 

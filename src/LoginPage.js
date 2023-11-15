@@ -27,7 +27,7 @@ const LoginPage = () => {
       navigate('/');
     } catch (error) {
       console.error('Error signing in:', error);
-      // Handle error here (e.g., show error message)
+      
     }
   };
 

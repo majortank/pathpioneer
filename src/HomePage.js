@@ -118,8 +118,6 @@ const HomePage = () => {
           </div>
         </div>
 
-      {/* ... rest of the code */}
-
         <div className="indicator mt-10 max-w-7xl">
           <div className="indicator-item indicator-bottom indicator-center">
             <button className="numerator btn btn-secondary w-10 text-3xl"><span className=" mx-2">{score}</span></button>
