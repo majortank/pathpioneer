@@ -32,7 +32,7 @@ This repository contains the source code for the PathPioneer Learning App, an ed
 2. Install dependencies:
 
    ```bash
-   cd learning-app
+   cd pathpioneer
    npm install
    ```
 
