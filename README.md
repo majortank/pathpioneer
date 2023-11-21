@@ -29,10 +29,10 @@ https://pioneer.tangikuu.tech/
 
 # Technologies Used
 
-⚛️ **React**
-🔥 **Firebase**
-🌐 **Tailwind CSS**
-🔶 **React Icons**
+- ⚛️ **React**
+- 🔥 **Firebase**
+- 🌐 **Tailwind CSS**
+- 🔶 **React Icons**
 
 ## Installation 🔧
 
