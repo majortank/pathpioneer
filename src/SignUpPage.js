@@ -3,6 +3,8 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from './contexts/auth';
 import './app.css';
 
+import toast from 'react-hot-toast';
+
 const SignUpPage = () => {
   const { user, signUpWithEmailAndPassword } = useAuth();
   const navigate = useNavigate();
@@ -24,7 +26,9 @@ const SignUpPage = () => {
     e.preventDefault();
     // Check if password matches confirmPassword
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match. Please try again.');
+      toast.error('Passwords do not match. Please try again.',{
+        icon:'🤔'
+      });
       return;
     }
 

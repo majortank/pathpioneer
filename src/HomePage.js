@@ -1,9 +1,10 @@
-import { redirect, useNavigate } from 'react-router-dom'; 
+import {useNavigate } from 'react-router-dom'; 
 import React, { useState, useEffect } from "react";
 import './app.css';
 import SkillsMatrix from "./components/SkillsMatrix";
 import Footer from "./components/Footer";
 import RewardPunishment from "./components/RewardPunishment";
+
 
 const API_BASE_URL = "https://www.pioneerapi.tangikuu.tech/question/all/";
 // const API_BASE_URL = "http://localhost:8000/question/all/";
@@ -20,7 +21,8 @@ const HomePage = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [disabledOptions, setDisabledOptions] = useState({});
   const [selectedLevel, setSelectedLevel] = useState("Beginner");
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
+  
     const navigate = useNavigate();
   useEffect(() => {
     if (!user){
@@ -37,11 +39,14 @@ const HomePage = () => {
     return array;
   };
 
-  const fetchQuestions = (level) => {
-    fetch(`${API_BASE_URL}${level}`)
+  const fetchQuestions = (level, numberOfQuestions) => {
+    fetch(`https://www.pioneerapi.tangikuu.tech/question/all/${level}`)
       .then((response) => response.json())
       .then((data) => {
-        const questionsWithShuffledOptions = data.map((question) => {
+        // Limiting the number of fetched questions to numberOfQuestions
+        const limitedData = data.slice(0, numberOfQuestions);
+  
+        const questionsWithShuffledOptions = limitedData.map((question) => {
           const shuffledOptions = shuffleArray(question.options);
           return { ...question, options: shuffledOptions };
         });
@@ -50,9 +55,10 @@ const HomePage = () => {
       .catch((error) => console.error("Error fetching data: ", error));
   };
   
+  
 
   useEffect(() => {
-    fetchQuestions(selectedLevel);
+    fetchQuestions(selectedLevel, 10);
   }, [selectedLevel]);
 
   const handleLevelChange = (event) => {
@@ -172,9 +178,9 @@ const HomePage = () => {
     </div>
     
     </div>
-    {/* {isLastQuestion && (
+    {isLastQuestion && (
         <SkillsMatrix userAnswers={userAnswers} questions={questions} />
-      )} */}
+      )}
       <Footer />
     </>
     

@@ -39,7 +39,7 @@ export const ContextProvider = ({ children }) => {
       setUser(userCredential.user);
       setCookie('user', userCredential.user, { path: '/' });
     } catch (error) {
-      console.error('Error signing up with email and password', error);
+      throw new Error('Error signing up with email and password', error.message);
     }
   };
 
@@ -49,7 +49,7 @@ export const ContextProvider = ({ children }) => {
       setUser(userCredential.user);
       setCookie('user', userCredential.user, { path: '/' });
     } catch (error) {
-      console.error('Error signing in with email and password', error);
+      throw new Error('Incorrect email or password.', error.message);
     }
   };
 
@@ -57,8 +57,7 @@ export const ContextProvider = ({ children }) => {
     try {
       await sendPasswordResetEmail(auth, email);
     } catch (error) {
-      console.error('Error sending password reset email', error);
-      throw error; 
+      throw new Error('Error sending password reset email', error.message);
     }
   };
   
@@ -67,7 +66,7 @@ export const ContextProvider = ({ children }) => {
       await firebaseSignOut(auth);
       removeCookie('user', { path: '/' });
     } catch (error) {
-      console.error('Error signing out', error);
+      throw new Error('Error signing out', error.message);
     }
   };
 

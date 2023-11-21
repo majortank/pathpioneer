@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from './contexts/auth';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import toast from 'react-hot-toast';
 
 
 const LoginPage = () => {
@@ -13,10 +13,12 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleChangeEmail = (e) => {
+    e.preventDefault();
     setEmail(e.target.value);
   };
 
   const handleChangePassword = (e) => {
+    e.preventDefault();
     setPassword(e.target.value);
   };
 
@@ -24,10 +26,15 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       await signInWithEmail(email, password);
+      toast.success("Welcome back!", {
+        icon: '🙂',
+      });
       navigate('/');
     } catch (error) {
-      console.error('Error signing in:', error);
-      
+      // Handle signup errors (for example, display an error message to the user)
+      toast.error(error.message, {
+        icon: '😕',
+      });
     }
   };
 

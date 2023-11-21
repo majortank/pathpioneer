@@ -7,6 +7,8 @@ import logo1 from '../images/logo1.png';
 import {BsFillPersonFill} from 'react-icons/bs';
 import { Link } from 'react-router-dom/dist';
 
+import { Toaster } from 'react-hot-toast';
+
 const Navbar = () => {
   const { user, signOut } = useAuth();
 
@@ -20,7 +22,8 @@ const Navbar = () => {
     }
   };
   return (
-    <div className="navbar bg-base-100">
+    <>
+        <div className="navbar bg-base-100">
         <div className="flex-1">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar ml-5 inline-block">
             <div className=" w-12  rounded-full">
@@ -79,6 +82,8 @@ const Navbar = () => {
         </div>
     </div>
     </div>
+    <Toaster position="top-center" toastOptions={{ duration:3000}} />
+    </>
   );
 };
 
