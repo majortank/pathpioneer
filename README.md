@@ -24,8 +24,15 @@ This repository contains the source code for the PathPioneer Learning App, an ed
 
 - **Notifications:** Pop up Alert with emojies to show a succesful action or an error.
 
-  ## Live Project
-  https://pioneer.tangikuu.tech/
+# Live Project
+https://pioneer.tangikuu.tech/
+
+# Technologies Used
+
+⚛️ **React**
+🔥 **Firebase**
+🌐 **Tailwind CSS**
+🔶 **React Icons**
 
 ## Installation 🔧
 
