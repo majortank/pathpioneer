@@ -20,6 +20,8 @@ This repository contains the source code for the PathPioneer Learning App, an ed
 - **User Authentication:** Secure login and authentication functionalities.
 - **Skills Assessment:** Ability to assess and track user progress.
 - **Interactive Learning:** Reward and punishment system for interactive learning.
+### New Features 😋
+- **Notifications** Pop up Alert with emojies to show a succesful action or an error.
 
   ## Live Project
   https://pioneer.tangikuu.tech/
