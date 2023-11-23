@@ -2,7 +2,7 @@
 
 ![PathPioneer - GenZ IT interns](./pathpioneer-main-feature.png)
 
-Welcome to the PathPioneer Learning App repository! 🚀
+Welcome to the PathPioneer Learning App repository!
 
 ## Overview ℹ️
 
