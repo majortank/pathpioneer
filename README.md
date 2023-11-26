@@ -59,9 +59,9 @@ https://pioneer.tangikuu.tech/
    npm start
    ```
 
-## Usage 💻
+## Code Break Down 💻
 
-For detailed instructions on how to use the application, refer to the [Wiki](https://github.com/majortank/pathpioneer/wiki).
+For detailed breakdown on how to use the code in this repo, refer to the [Wiki](https://github.com/majortank/pathpioneer/wiki).
 
 ## Contributing 🤝
 
