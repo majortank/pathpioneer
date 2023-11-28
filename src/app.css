@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f5f3ff;
+    background: linear-gradient(to bottom, #eef2ff, transparent);
     font-family: 'Roboto', sans-serif;
     color: #4b5563;
     min-width: 100vw;

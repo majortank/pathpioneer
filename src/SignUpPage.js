@@ -52,59 +52,51 @@ const SignUpPage = () => {
   return (
     <div className=' h-screen'>
         <div className="container bg-base-100 mx-auto mt-8 p-4 max-w-md rounded">
-        <h2 className="text-2xl font-bold mb-4 text-gray-600">Start Your Career Quest</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="space-y-4">
-            <div className="space-y-1">
-              <label className="label">
-                <span className="label-text">What is your email?</span>
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="input input-bordered input-primary w-full"
-                required
-              />
-            </div>
-            <div className="space-y-1">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                className="input input-bordered input-primary w-full"
-                required
-              />
-            </div>
-            <div className="space-y-1">
-              <label className="label">
-                <span className="label-text">Repeat your password</span>
-              </label>
-              <input
-                type="password"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                className="input input-bordered input-primary w-full"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="btn-primary w-full py-2 rounded-lg bg-primary-500 hover:bg-primary-600 text-white"
-            >
-              Sign Up
-            </button>
+        <h2 className="text-2xl font-bold mb-4 text-primary">Register 📝</h2>
+        <h3 className="text-lg mb-4 text-secondary">Start Your Career Quest 🚀</h3>
+        <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
+          <div className="relative z-0 w-full mb-5 group">
+              <input 
+              type="email" 
+              name="floating_email" 
+              id="floating_email" 
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+              placeholder=" "
+              value={formData.email}
+              onChange={handleChange} 
+              required />
+              <label for="floating_email" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
           </div>
+          <div className="relative z-0 w-full mb-5 group">
+              <input 
+              type="password" 
+              name="floating_password" 
+              id="floating_password" 
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+              placeholder=" " 
+              value={formData.password}
+              onChange={handleChange}
+              required 
+              />
+              <label for="floating_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+          </div>
+          <div className="relative z-0 w-full mb-5 group">
+              <input 
+              type="password" 
+              name="repeat_password" 
+              id="floating_repeat_password" 
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+              placeholder=" " 
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required />
+              <label for="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
+          </div>
+          <button type="submit" className="w-full text-white bg-secondary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Create an account</button>
+          <p className="text-sm font-light text-gray-500 dark:text-gray-400 mt-2">
+              Already have an account? <Link to={'/login'} className="font-medium text-primary hover:underline dark:text-primary-500">Login here</Link>
+          </p>
         </form>
-        <p className="mt-4 text-sm">
-          Already have an account? <Link to="/login" className="link link-primary">Sign in here</Link>.
-        </p>
       </div>
     </div>
   );
