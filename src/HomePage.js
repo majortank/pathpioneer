@@ -2,7 +2,6 @@ import {useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 import './app.css';
 import SkillsMatrix from "./components/SkillsMatrix";
-import Footer from "./components/Footer";
 import RewardPunishment from "./components/RewardPunishment";
 
 
@@ -178,7 +177,6 @@ const HomePage = () => {
     {isLastQuestion && (
         <SkillsMatrix userAnswers={userAnswers} questions={questions} />
       )}
-      <Footer />
     </>
     
   );
