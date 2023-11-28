@@ -25,6 +25,7 @@ This repository contains the source code for the PathPioneer Learning App, an ed
 ### New Features 😋
 
 - **Notifications:** Pop up Alert with emojies to show a succesful action or an error.
+- **Landing Page:** A descriptive landing page that describes our value proposition and functionalities.
 
 # Live Project 🚀
 https://pioneer.tangikuu.tech/
