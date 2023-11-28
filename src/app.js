@@ -5,15 +5,17 @@ import Navbar from './components/navbar';
 import HomePage from './HomePage';
 import LoginPage from './LoginPage';
 import SignUpPage from './SignUpPage';
+import Landing from './Landing';
 
 const App = () => {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<SignUpPage />} />
+        <Route path="/pioneer" element={<HomePage />} />
       </Routes>
     </Router>
   );
