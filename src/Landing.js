@@ -9,7 +9,7 @@ const Landing = () => {
         <section className="bg-white dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
             <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
                 <a href="https://github.com/majortank/pathpioneer#features" className="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-secondary bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800">
-                    <span className="text-xs bg-secondary rounded-full text-white px-4 py-1.5 mr-3">New</span> <span className="text-sm font-medium">The Toast notification feature was Launched! See what's new</span> 
+                    <span className="text-xs bg-secondary rounded-full text-white px-4 py-1.5 mr-3">New</span> <span className="text-sm font-medium">The notification feature was Launched! See what's new</span> 
                     <svg className="w-2.5 h-2.5 ml-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                     </svg>
