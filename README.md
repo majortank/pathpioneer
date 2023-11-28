@@ -1,6 +1,8 @@
 # PathPioneer Learning App 📚
 
-Welcome to the PathPioneer Learning App repository! 🚀
+![PathPioneer - GenZ IT interns](./pathpioneer-main-feature.png)
+
+Welcome to the PathPioneer Learning App repository!
 
 ## Overview ℹ️
 
@@ -16,16 +18,23 @@ This repository contains the source code for the PathPioneer Learning App, an ed
 
 ## Features 🌟
 
+- **Skills Assessment:** Ability to assess and track user progress. - (Main Feature)
 - **Learning Modules:** Engaging modules covering a wide range of subjects.
 - **User Authentication:** Secure login and authentication functionalities.
-- **Skills Assessment:** Ability to assess and track user progress.
 - **Interactive Learning:** Reward and punishment system for interactive learning.
 ### New Features 😋
 
 - **Notifications:** Pop up Alert with emojies to show a succesful action or an error.
 
-  ## Live Project
-  https://pioneer.tangikuu.tech/
+# Live Project 🚀
+https://pioneer.tangikuu.tech/
+
+# Technologies Used 🛠️
+
+- ⚛️ **React**
+- 🔥 **Firebase**
+- 🌐 **Tailwind CSS**
+- 🔶 **React Icons**
 
 ## Installation 🔧
 
@@ -50,9 +59,9 @@ This repository contains the source code for the PathPioneer Learning App, an ed
    npm start
    ```
 
-## Usage 💻
+## Code Break Down 💻
 
-For detailed instructions on how to use the application, refer to the [Wiki](https://github.com/majortank/pathpioneer/wiki).
+For detailed breakdown on how to use the code in this repo, refer to the [Wiki](https://github.com/majortank/pathpioneer/wiki).
 
 ## Contributing 🤝
 
