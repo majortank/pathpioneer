@@ -1,6 +1,6 @@
 # PathPioneer Learning App 📚
 
-![PathPioneer - GenZ IT interns](./pathpioneer-main-feature.png)
+![PathPioneer - GenZ IT interns](./pathpioneer-main-feature.jpg)
 
 Welcome to the PathPioneer Learning App repository!
 
