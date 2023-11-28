@@ -45,7 +45,7 @@ const SignUpPage = () => {
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      navigate('/pioneer');
     }
   }, [user]);
 
