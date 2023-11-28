@@ -45,7 +45,7 @@ const LoginPage = () => {
   }, [user]);
 
   return (
-    <>
+    <div className=' h-screen'>
       <div className="container bg-base-100 mx-auto mt-8 p-4 max-w-md rounded">
         <h2 className="text-2xl font-bold mb-4">Your Career Adventure Awaits</h2>
         <form className='' onSubmit={handleSubmit}>
@@ -87,7 +87,7 @@ const LoginPage = () => {
           Don't have an account? <Link to="/register" className="link link-primary">Sign up here</Link>.
         </p>
       </div>
-    </>
+    </div>
   );
 };
 
