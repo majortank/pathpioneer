@@ -10,9 +10,6 @@ const API_BASE_URL = "https://www.pioneerapi.tangikuu.tech/question/all/";
 // const API_BASE_URL = "http://localhost:8000/question/all/";
 
 
-import logo from './images/logo.png';
-import logo1 from './images/logo1.png';
-
 import { useAuth } from './contexts/auth';
 
 const HomePage = () => {
