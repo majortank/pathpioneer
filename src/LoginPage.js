@@ -29,7 +29,7 @@ const LoginPage = () => {
       toast.success("Welcome back!", {
         icon: '🙂',
       });
-      navigate('/');
+      navigate('/pioneer');
     } catch (error) {
       // Handle signup errors (for example, display an error message to the user)
       toast.error(error.message, {
@@ -40,7 +40,7 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      navigate("/pioneer");
     }
   }, [user]);
 
