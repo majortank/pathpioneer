@@ -31,7 +31,7 @@ const Navbar = () => {
                 </div>
                 
                 </label>
-                <Link to={'/'} className="btn btn-ghost normal-case text-xl"><span className=" text-indigo-500 text-2xl logo">Path</span><span className=" text-fuchsia-500 text-2xl logo">Pioneer</span></Link>
+                <Link to={'/'} className="btn btn-ghost normal-case text-xl"><span className=" text-primary text-2xl logo">Path</span><span className=" text-secondary text-2xl logo">Pioneer</span></Link>
             </div>
             <div className="flex-none mr-2">
                 <div className="dropdown dropdown-end">
