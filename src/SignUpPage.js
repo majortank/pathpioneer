@@ -8,11 +8,24 @@ import toast from 'react-hot-toast';
 const SignUpPage = () => {
   const { user, signUpWithEmailAndPassword } = useAuth();
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    confirmPassword: '',
-  });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handleChangeEmail = (e) => {
+    e.preventDefault();
+    setEmail(e.target.value);
+  };
+
+  const handleChangePassword = (e) => {
+    e.preventDefault();
+    setPassword(e.target.value);
+  };
+
+  const handleChangeConfirmPassword = (e) => {
+    e.preventDefault();
+    setConfirmPassword(e.target.value);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +38,7 @@ const SignUpPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Check if password matches confirmPassword
-    if (formData.password !== formData.confirmPassword) {
+    if (password !== confirmPassword) {
       toast.error('Passwords do not match. Please try again.',{
         icon:'🤔'
       });
@@ -34,7 +47,7 @@ const SignUpPage = () => {
 
     try {
       // Call the signUpWithEmailAndPassword function from the context provider
-      await signUpWithEmailAndPassword(formData.email, formData.password);
+      await signUpWithEmailAndPassword(email, password);
       // Redirect the user after successful signup
       navigate('/login'); // Redirect to the login page
     } catch (error) {
@@ -62,8 +75,8 @@ const SignUpPage = () => {
               id="floating_email" 
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
               placeholder=" "
-              value={formData.email}
-              onChange={handleChange} 
+              value={email}
+              onChange={handleChangeEmail} 
               required />
               <label for="floating_email" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
           </div>
@@ -74,8 +87,8 @@ const SignUpPage = () => {
               id="floating_password" 
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
               placeholder=" " 
-              value={formData.password}
-              onChange={handleChange}
+              value={password}
+              onChange={handleChangePassword}
               required 
               />
               <label for="floating_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
@@ -87,8 +100,8 @@ const SignUpPage = () => {
               id="floating_repeat_password" 
               className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
               placeholder=" " 
-              value={formData.confirmPassword}
-              onChange={handleChange}
+              value={confirmPassword}
+              onChange={handleChangeConfirmPassword}
               required />
               <label for="floating_repeat_password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm password</label>
           </div>
