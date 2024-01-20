@@ -36,14 +36,16 @@ const createQuiz = () => {
     }
   };
 
-  const handleInputChange = (index, value) => {
-    setQuestion({
-      ...question,
-      options: question.options.map((option, i) =>
-        i === index ? value : option
-      ),
-    });
-  };
+//   const handleInputChange = (index, value) => {
+//     setQuestion({
+//       ...question,
+//       options: question.options.map((option, i) =>
+//         i === index ? value : option
+//       ),
+//     });
+//   };
+
+  const cityOptions = ["Madrid", "Barcelona", "Seville", "Valencia"];
 
   const handleOtherInputChange = (field, value) => {
     setQuestion({
@@ -54,89 +56,123 @@ const createQuiz = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='flex flex-col'>
         {/* Question input */}
-        <label>Question:</label>
-        <input
-          type="text"
-          value={question.question}
-          onChange={(e) => handleOtherInputChange('question', e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-          required
-        />
+        <label className="form-control w-full max-w-lg">
+            <div htmlFor="Question" className="label">
+                <span className="label-text">Question Text?</span>
+            </div>
+            <textarea 
+            placeholder="What is the capital of Spain?" 
+            onChange={(e) => handleQuestionChange('question', e.target.value)}
+            className="textarea textarea-secondary textarea-lg w-full max-w-lg"
+            value={question.question}
+            required
+            />
+            </label>
 
         {/* Options inputs */}
         {question.options.map((option, index) => (
-          <div key={index} className="mb-4">
-            <label>{`Option ${index + 1}:`}</label>
-            <input
-              type="text"
-              value={option}
-              onChange={(e) => handleInputChange(index, e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded"
-              required
-            />
-          </div>
+            <label key={index} className="form-control w-full max-w-lg">
+                <div htmlFor="Question" className="label">
+                    <span className="label-text">{`Option # ${index + 1}:`}</span>
+                </div>
+                <input 
+                    type="text"
+                    value={option} 
+                    placeholder={`${cityOptions[index]}`} 
+                    onChange={(e) => handleQuestionChange(index, e.target.value)}
+                    className="input input-bordered input-primary w-full max-w-lg"
+                    required
+                />
+            </label>
         ))}
 
+
         {/* Correct answer input */}
-        <label>Correct Answer:</label>
-        <input
-          type="text"
-          value={question.correct_answer}
-          onChange={(e) => handleOtherInputChange('correct_answer', e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-          required
-        />
+        <label className="form-control w-full max-w-lg">
+        <div htmlFor="CorrectAnswer" className="label">
+            <span className="label-text">Correct Answer:</span>
+        </div>
+        <input 
+            id="CorrectAnswer" 
+            type="text"
+            value={question.correct_answer} 
+            placeholder="Madrid" 
+            onChange={(e) => handleQuestionChange('correct_answer', e.target.value)}
+            className="input input-bordered input-accent w-full max-w-lg"
+            required
+            />
+        </label>
 
         {/* Level input */}
-        <label>Level:</label>
-        <input
-          type="text"
-          value={question.level}
-          onChange={(e) => handleOtherInputChange('level', e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-          required
-        />
-
-        {/* Industry input */}
-        <label>Industry:</label>
-        <input
-          type="text"
-          value={question.industry}
-          onChange={(e) => handleOtherInputChange('industry', e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-          required
-        />
-
-        {/* Focus Area input */}
-        <label>Focus Area:</label>
-        <input
-          type="text"
-          value={question.focus_area}
-          onChange={(e) => handleOtherInputChange('focus_area', e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-          required
-        />
-
-        {/* Topic input */}
-        <label>Topic:</label>
-        <input
-          type="text"
-          value={question.topic}
-          onChange={(e) => handleOtherInputChange('topic', e.target.value)}
-          className="w-full p-2 mb-4 border border-gray-300 rounded"
-          required
-        />
-
+        <label className="form-control w-full max-w-lg">
+        <div htmlFor="Level" className="label">
+            <span className="label-text">Level:</span>
+        </div>
+        <input 
+            id="Level" 
+            type="text"
+            value={question.level} 
+            placeholder="Beginner" 
+            onChange={(e) => handleQuestionChange('level', e.target.value)}
+            className="input input-bordered input-primary w-full max-w-lg"
+            required
+            />
+        </label>
+            {/* Industry Input */}
+        <label className="form-control w-full max-w-lg">
+            <div htmlFor="Industry" className="label">
+                <span className="label-text">Industry:</span>
+            </div>
+            <input 
+                id="Industry" 
+                type="text"
+                value={question.level} 
+                placeholder="Geography" 
+                onChange={(e) => handleQuestionChange('industry', e.target.value)}
+                className="input input-bordered input-primary w-full max-w-lg"
+                required
+                />
+        </label>
+            {/* Focus Area Input */}
+        <label className="form-control w-full max-w-lg">
+            <div htmlFor="FocusArea" className="label">
+                <span className="label-text">Focus Area:</span>
+            </div>
+            <input 
+                id="FocusArea" 
+                type="text"
+                value={question.focus_area} 
+                placeholder="European Capitals" 
+                onChange={(e) => handleQuestionChange('focus_area', e.target.value)}
+                className="input input-bordered input-primary w-full max-w-lg"
+                required
+                />
+        </label>
+            {/* Topic Input */}
+        <label className="form-control w-full max-w-lg">
+            <div htmlFor="Level" className="label">
+                <span className="label-text">Topic:</span>
+            </div>
+            <input 
+                id="Level" 
+                type="text"
+                value={question.topic} 
+                placeholder="World Geography" 
+                onChange={(e) => handleQuestionChange('topic', e.target.value)}
+                className="input input-bordered input-primary w-full max-w-lg"
+                required
+                />
+        </label>
         {/* Submit button */}
-        <button
-          type="submit"
-          className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
-        >
-          Create Question
+      <button 
+        type="submit"
+        className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 mt-2">
+            Submit Question
         </button>
       </form>
+      
     </div>
   );
 };
