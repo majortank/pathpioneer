@@ -201,9 +201,9 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      {isLastQuestion && (
+      {/* {isLastQuestion && (
         <SkillsMatrix userAnswers={userAnswers} questions={questions} />
-      )}
+      )} */}
     </>
   );
 };
