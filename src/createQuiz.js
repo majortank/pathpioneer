@@ -1,7 +1,36 @@
 // QuestionForm.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import {useAuth} from "./contexts/auth";
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
+
 const createQuiz = () => {
+
+  const {user} = useAuth();
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    const navigateToLogin = () => {
+        if (!user) {
+            toast.error("You need to login first", {
+                icon: '😕',
+              });
+          navigate("/login", {replace: true});
+        }
+    }
+    
+
+    if (!user) {
+        // Set a timeout of 2000 milliseconds (2 seconds) before navigating
+        const timeoutId = setTimeout(navigateToLogin, 2000);
+  
+        // Cleanup the timeout if the component unmounts or the user logs in during the timeout
+        return () => clearTimeout(timeoutId);
+      }
+  }, [user, navigate]);
+
+
   const [question, setQuestion] = useState({
     question: '',
     options: ['', '', '', ''],
@@ -55,6 +84,7 @@ const createQuiz = () => {
 
   return (
         <div className="container mx-auto p-4"> 
+            <h1 className="text-4xl my-4 font-bold text-center text-primary dark:text-white">Create a Custom Question</h1>
           <form onSubmit={handleSubmit} className='flex flex-col w-full lg:flex-row'>
             <div className='grid md:grid flex-grow h-full w-full card bg-indigo-50 rounded-box place-items-center overflow-y-auto'>
                 {/* Question input */}
