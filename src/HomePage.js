@@ -4,9 +4,6 @@ import "./app.css";
 import SkillsMatrix from "./components/SkillsMatrix";
 import RewardPunishment from "./components/RewardPunishment";
 
-const API_BASE_URL = "https://www.pioneerapi.tangikuu.tech/question/all/";
-// const API_BASE_URL = "http://localhost:8000/question/all/";
-
 import {useAuth} from "./contexts/auth";
 
 const HomePage = () => {
