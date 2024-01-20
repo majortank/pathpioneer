@@ -49,7 +49,7 @@ export const ContextProvider = ({ children }) => {
       setUser(userCredential.user);
       setCookie('user', userCredential.user, { path: '/' });
     } catch (error) {
-      throw new Error('Incorrect email or password.', error.message);
+      throw new Error(`${email} with that password not in our database`, error.message);
     }
   };
 

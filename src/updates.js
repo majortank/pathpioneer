@@ -1,14 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import './app.css';
 import { useAuth } from './contexts/auth';
-import axios
- from 'axios';
- import toast from 'react-hot-toast';
-
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Updates = () => {
     const {user} = useAuth();
-
     const [loading, setLoading] = useState(true);
     const [notifications, setNotifications] = useState([]);
 
@@ -37,7 +34,6 @@ const Updates = () => {
     
   return (
     <div className=''>
-        
         <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
         <section className="bg-indigo-50  dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')] flex flex-row gap-4">
             <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-primary md:text-5xl lg:text-6xl dark:text-white">New Features/Bug Fixes or Improvements</h1>
@@ -55,8 +51,6 @@ const Updates = () => {
             ))}
         </section>
         </div>
-        
-        
     </div>
   )
 }

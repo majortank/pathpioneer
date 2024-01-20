@@ -2,6 +2,7 @@ import React from 'react'
 import './app.css';
 import { Link } from 'react-router-dom';
 import { useAuth } from './contexts/auth';
+
 const Landing = () => {
     const {user} = useAuth();
   return (
@@ -46,12 +47,12 @@ const Landing = () => {
                     </a>
                     <h1 className="text-primary dark:text-white text-3xl md:text-5xl font-extrabold mb-2">How to Use Our API for Custom Questions?</h1>
                     <p className="text-lg font-normal text-gray-600 dark:text-gray-400 mb-6">Explore the capabilities of our API, empowering you to craft custom questions and leverage its potential for various purposes within the IT landscape.</p>
-                    <a href="https://www.pioneerapi.tangikuu.tech/" className="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-secondary hover:bg-primary focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+                    <Link to={'/quiz'} className="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-secondary hover:bg-primary focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                         Read more
                         <svg className="w-3.5 h-3.5 ml-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                         </svg>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>
