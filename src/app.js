@@ -6,6 +6,7 @@ import HomePage from './HomePage';
 import LoginPage from './LoginPage';
 import SignUpPage from './SignUpPage';
 import Landing from './Landing';
+import Updates from './updates';
 import Footer from './components/Footer';
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<SignUpPage />} />
+        <Route path="/updates" element={<Updates />} />
         <Route path="/pioneer" element={<HomePage />} />
       </Routes>
       <Footer />
