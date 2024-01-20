@@ -35,7 +35,7 @@ const Updates = () => {
   return (
     <div className=' flex flex-col justify-center'>
     <h1 className="my-4 text-4xl font-extrabold tracking-tight leading-none text-primary md:text-5xl lg:text-6xl dark:text-white">New Features/Bug Fixes or Improvements</h1>
-    <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative flex flex-wrap gap-2">
+    <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative flex flex-wrap gap-2 md:flex-col">
         {notifications.map((notification, index) => (
             <div key={index}  className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 
