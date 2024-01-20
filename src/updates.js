@@ -33,25 +33,21 @@ const Updates = () => {
     
     
   return (
-    <div className=''>
-        <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
-        <section className="bg-indigo-50  dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')] flex flex-row gap-4">
-            <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-primary md:text-5xl lg:text-6xl dark:text-white">New Features/Bug Fixes or Improvements</h1>
-            {notifications.map((notification, index) => (
-                <div key={index} className="card w-3/5 my-5 bg-secondary text-neutral-content">
-                    <div className="card-body items-center text-center">
-                        <h2 className="card-title text-base-100">{notification.title}</h2>
-                        <p className='text-base-100'>{notification.content}</p>
-                        <div className="card-actions justify-end">
-                        <button className="btn  btn-disabled text-gray-800">{notification.timestamp}</button>
-                        <button className="btn btn-disabled text-gray-800">{notification.type}</button>
-                        </div>
-                    </div>
-                </div>
-            ))}
-        </section>
-        </div>
+    <div className=' flex flex-col justify-center'>
+    <h1 className="my-4 text-4xl font-extrabold tracking-tight leading-none text-primary md:text-5xl lg:text-6xl dark:text-white">New Features/Bug Fixes or Improvements</h1>
+    <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative flex flex-wrap gap-2">
+        {notifications.map((notification, index) => (
+            <div key={index}  className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                
+                <h1 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{notification.title}</h1>
+                <p className="mb-3 font-normal text-gray-500 dark:text-gray-400">{notification.content}</p>
+                <span className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">{notification.timestamp}</span>
+                <span className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">{notification.type}</span>
+
+            </div>
+        ))} 
     </div>
+</div>
   )
 }
 

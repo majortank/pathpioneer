@@ -1,7 +1,6 @@
 // QuestionForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import toast from 'react-hot-toast';
 const createQuiz = () => {
   const [question, setQuestion] = useState({
     question: '',
@@ -88,8 +87,7 @@ const createQuiz = () => {
                         />
                     </label>
                 ))}
-
-
+                
                 
             </div>
             <div className="divider lg:divider-horizontal">More</div> 
