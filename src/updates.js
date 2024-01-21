@@ -37,10 +37,10 @@ const Updates = () => {
         <h1 className="my-4 text-center text-4xl font-extrabold tracking-tight leading-none text-primary md:text-5xl lg:text-6xl dark:text-white">New Features/Bug Fixes or Improvements</h1>
         <div className="py-8 px-4 w-full mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative flex flex-row gap-2">
             {notifications.map((notification, index) => (
-                <div key={index}  className="max-w-lg p-6 bg-violet-400 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div key={index}  className="max-w-lg p-6 bg-secondary border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                     
-                    <h1 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{notification.title}</h1>
-                    <p className="mb-3 font-normal text-indigo-950 dark:text-gray-400">{notification.content}</p>
+                    <h1 className="mb-2 text-2xl font-semibold tracking-tight text-white dark:text-white">{notification.title}</h1>
+                    <p className="mb-3 font-normal text-white dark:text-gray-400">{notification.content}</p>
                     <span className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">{notification.timestamp}</span>
                     <span className="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-green-400 border border-green-400">{notification.type}</span>
 
