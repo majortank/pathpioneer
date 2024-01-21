@@ -33,7 +33,7 @@ const Updates = () => {
     
     
   return (
-     <div className=''>
+     <div className=' container mx-auto p-2'>
         <h1 className="my-4 text-center text-4xl font-extrabold tracking-tight leading-none text-primary md:text-5xl lg:text-6xl dark:text-white">New Features/Bug Fixes or Improvements</h1>
         <div className="py-8 px-4 w-full mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative flex flex-row gap-2">
             {notifications.map((notification, index) => (
