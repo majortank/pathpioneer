@@ -6,24 +6,26 @@ import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const createQuiz = () => {
-
+  
   const {user} = useAuth();
 
   const navigate = useNavigate();
+
   useEffect(() => {
     const navigateToLogin = () => {
         if (!user) {
-            toast.error("You need to login first", {
+            toast.error("Please login to create a quiz.", {
                 icon: '😕',
+                timeout: 8000,
               });
-          navigate("/login", {replace: true});
+          navigate("/login", {state: { from: window.location.pathname } });
         }
     }
     
 
     if (!user) {
         // Set a timeout of 2000 milliseconds (2 seconds) before navigating
-        const timeoutId = setTimeout(navigateToLogin, 2000);
+        const timeoutId = setTimeout(navigateToLogin, 500);
   
         // Cleanup the timeout if the component unmounts or the user logs in during the timeout
         return () => clearTimeout(timeoutId);
@@ -64,37 +66,38 @@ const createQuiz = () => {
     }
   };
 
-//   const handleInputChange = (index, value) => {
-//     setQuestion({
-//       ...question,
-//       options: question.options.map((option, i) =>
-//         i === index ? value : option
-//       ),
-//     });
-//   };
+    const cityOptions = ["Madrid", "Barcelona", "Seville", "Valencia"];
 
-  const cityOptions = ["Madrid", "Barcelona", "Seville", "Valencia"];
+    const handleInputChange = (index, value) => {
+        setQuestion({
+        ...question,
+        options: question.options.map((option, i) =>
+            i === index ? value : option
+        ),
+        });
+    };
 
-  const handleOtherInputChange = (field, value) => {
-    setQuestion({
-      ...question,
-      [field]: value,
-    });
-  };
+    const handleOtherInputChange = (field, value) => {
+        setQuestion({
+        ...question,
+        [field]: value,
+        });
+    };
+  
 
   return (
-        <div className="container mx-auto p-4"> 
+        <div className=" container mx-auto my-4"> 
             <h1 className="text-4xl my-4 font-bold text-center text-primary dark:text-white">Create a Custom Question</h1>
           <form onSubmit={handleSubmit} className='flex flex-col w-full lg:flex-row'>
             <div className='grid md:grid flex-grow h-full w-full card bg-indigo-50 rounded-box place-items-center overflow-y-auto'>
                 {/* Question input */}
                 <label className="form-control w-full max-w-lg m-0">
                     <div htmlFor="Question" className="label">
-                        <span className="label-text">Question Text?</span>
+                        <span className=" label-text text-xl">Question Text?</span>
                     </div>
                     <textarea 
                     placeholder="What is the capital of Spain?" 
-                    onChange={(e) => handleQuestionChange('question', e.target.value)}
+                    onChange={(e) => handleOtherInputChange('question', e.target.value)}
                     className="textarea textarea-secondary textarea-lg w-full max-w-lg"
                     value={question.question}
                     required
@@ -105,13 +108,13 @@ const createQuiz = () => {
                 {question.options.map((option, index) => (
                     <label key={index} className="form-control w-full max-w-lg">
                         <div htmlFor="Question" className="label">
-                            <span className="label-text">{`Option # ${index + 1}:`}</span>
+                            <span className="label-text text-xl">{`Option # ${index + 1}:`}</span>
                         </div>
                         <textarea 
                             type="text"
                             value={option} 
                             placeholder={`${cityOptions[index]}`} 
-                            onChange={(e) => handleQuestionChange(index, e.target.value)}
+                            onChange={(e) => handleInputChange(index, e.target.value)}
                             className="textarea textarea-info textarea-lg w-full max-w-lg"
                             required
                         />
@@ -125,14 +128,14 @@ const createQuiz = () => {
                 {/* Correct answer input */}
                 <label className="form-control w-full max-w-lg">
                 <div htmlFor="CorrectAnswer" className="label">
-                    <span className="label-text">Correct Answer:</span>
+                    <span className="label-text text-xl">Correct Answer:</span>
                 </div>
                 <textarea 
                     id="CorrectAnswer" 
                     type="text"
                     value={question.correct_answer} 
                     placeholder="Madrid" 
-                    onChange={(e) => handleQuestionChange('correct_answer', e.target.value)}
+                    onChange={(e) => handleOtherInputChange('correct_answer', e.target.value)}
                     className="textarea textarea-accent textarea-lg w-full max-w-lg"
                     required
                     />
@@ -141,14 +144,14 @@ const createQuiz = () => {
                 {/* Level input */}
                 <label className="form-control w-full max-w-lg">
                 <div htmlFor="Level" className="label">
-                    <span className="label-text">Level:</span>
+                    <span className="label-text text-xl">Level:</span>
                 </div>
                 <input 
                     id="Level" 
                     type="text"
                     value={question.level} 
                     placeholder="Beginner" 
-                    onChange={(e) => handleQuestionChange('level', e.target.value)}
+                    onChange={(e) => handleOtherInputChange('level', e.target.value)}
                     className="input input-bordered input-primary w-full max-w-lg"
                     required
                     />
@@ -156,14 +159,14 @@ const createQuiz = () => {
                     {/* Industry Input */}
                 <label className="form-control w-full max-w-lg">
                     <div htmlFor="Industry" className="label">
-                        <span className="label-text">Industry:</span>
+                        <span className="label-text text-xl">Industry:</span>
                     </div>
                     <input 
                         id="Industry" 
                         type="text"
-                        value={question.level} 
+                        value={question.industry} 
                         placeholder="Geography" 
-                        onChange={(e) => handleQuestionChange('industry', e.target.value)}
+                        onChange={(e) => handleOtherInputChange('industry', e.target.value)}
                         className="input input-bordered input-primary w-full max-w-lg"
                         required
                         />
@@ -171,29 +174,29 @@ const createQuiz = () => {
                     {/* Focus Area Input */}
                 <label className="form-control w-full max-w-lg">
                     <div htmlFor="FocusArea" className="label">
-                        <span className="label-text">Focus Area:</span>
+                        <span className="label-text text-xl">Focus Area:</span>
                     </div>
                     <input 
                         id="FocusArea" 
                         type="text"
                         value={question.focus_area} 
                         placeholder="European Capitals" 
-                        onChange={(e) => handleQuestionChange('focus_area', e.target.value)}
+                        onChange={(e) => handleOtherInputChange('focus_area', e.target.value)}
                         className="input input-bordered input-primary w-full max-w-lg"
                         required
                         />
                 </label>
                     {/* Topic Input */}
                 <label className="form-control w-full max-w-lg">
-                    <div htmlFor="Level" className="label">
-                        <span className="label-text">Topic:</span>
+                    <div htmlFor="Topic" className="label">
+                        <span className="label-text text-xl">Topic:</span>
                     </div>
                     <input 
-                        id="Level" 
+                        id="Topic" 
                         type="text"
                         value={question.topic} 
                         placeholder="World Geography" 
-                        onChange={(e) => handleQuestionChange('topic', e.target.value)}
+                        onChange={(e) => handleOtherInputChange('topic', e.target.value)}
                         className="input input-bordered input-primary w-full max-w-lg"
                         required
                         />
@@ -202,7 +205,7 @@ const createQuiz = () => {
                  {/* Submit button */}
                 <button 
                     type="submit"
-                    className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 mt-2">
+                    className=" bg-secondary text-white p-2 rounded hover:bg-primary my-2">
                         Submit Question
                 </button>
             </div>

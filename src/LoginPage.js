@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from './contexts/auth';
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast'; // Add this line
+import { useNavigate, useLocation } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 
 const LoginPage = () => {
@@ -10,6 +10,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const location = useLocation();
   const navigate = useNavigate();
 
   const handleChangeEmail = (e) => {
@@ -26,10 +27,10 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       await signInWithEmail(email, password);
-      toast.success("Welcome back!", {
+      toast.success("Welcome!", {
         icon: '🙂',
       });
-      navigate('/pioneer');
+      navigate(location.state?.from || '/pioneer');
     } catch (error) {
       // Handle signup errors (for example, display an error message to the user)
       toast.error(error.message, {
@@ -38,11 +39,18 @@ const LoginPage = () => {
     }
   };
 
+  const getRedirectRoute = () => {
+    // Access the state passed during navigation
+    return location.state?.from;
+  }
+
+  console.log(getRedirectRoute());
+
   useEffect(() => {
     if (user) {
-      navigate("/pioneer");
+      navigate(location.state?.from || '/pioneer');
     }
-  }, [user]);
+  }, [user, navigate, location.state]);
 
   return (
     <div className=' h-screen'>

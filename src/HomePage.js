@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import "./app.css";
 import SkillsMatrix from "./components/SkillsMatrix";
 import RewardPunishment from "./components/RewardPunishment";
+import toast from 'react-hot-toast'; 
 
 import {useAuth} from "./contexts/auth";
 
@@ -15,10 +16,26 @@ const HomePage = () => {
   const {user} = useAuth();
 
   const navigate = useNavigate();
+
   useEffect(() => {
-    if (!user) {
-      navigate("/login", {replace: true});
+    const navigateToLogin = () => {
+        if (!user) {
+            toast.error("Please login to take the skills assesment.", {
+                icon: '😕',
+                timeout: 8000,
+              });
+          navigate("/login", {state: { from: window.location.pathname } });
+        }
     }
+    
+
+    if (!user) {
+        // Set a timeout of 2000 milliseconds (2 seconds) before navigating
+        const timeoutId = setTimeout(navigateToLogin, 500);
+  
+        // Cleanup the timeout if the component unmounts or the user logs in during the timeout
+        return () => clearTimeout(timeoutId);
+      }
   }, [user, navigate]);
 
   const shuffleArray = (array) => {
