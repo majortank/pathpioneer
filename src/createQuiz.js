@@ -86,7 +86,7 @@ const createQuiz = () => {
   
 
   return (
-        <div className=" container mx-auto my-4"> 
+        <div className=" container mx-auto my-4 p-2"> 
             <h1 className="text-4xl my-4 font-bold text-center text-primary dark:text-white">Create a Custom Question</h1>
           <form onSubmit={handleSubmit} className='flex flex-col w-full lg:flex-row'>
             <div className='grid md:grid flex-grow h-full w-full card bg-indigo-50 rounded-box place-items-center overflow-y-auto'>
