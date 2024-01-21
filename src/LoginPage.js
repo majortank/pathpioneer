@@ -91,6 +91,7 @@ const LoginPage = () => {
             Register
             </Link>
         </p>
+        <p className="mt-4"> Forgot your password? <Link to="/reset-password" className="text-secondary">Reset Here</Link></p>
         </div>
     </div>
   );
