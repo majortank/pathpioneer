@@ -12,7 +12,7 @@ const Updates = () => {
     useEffect(() => {
         const getNotifications = async () => {
             try {
-                const res = await axios.get('https://www.pioneerapi.tangikuu.tech/notifications');
+                const res = await axios.get('http://www.pioneerapi.tangikuu.tech/notifications');
                 setNotifications(res.data);
                 setLoading(false);
                 toast.success("See new updates here!", {
